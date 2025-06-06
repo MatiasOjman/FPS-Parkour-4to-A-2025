@@ -5,6 +5,12 @@ using UnityEngine;
 public class DineroManager : MonoBehaviour
 {
     public float Playermoney;
+    public UiManager uiManager;
+
+    private void Start()
+    {
+        uiManager = FindObjectOfType<UiManager>();
+    }
     public void UpdateMoney(float amount)
     {
        
