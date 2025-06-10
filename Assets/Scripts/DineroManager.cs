@@ -11,16 +11,18 @@ public class DineroManager : MonoBehaviour
     {
         uiManager = FindObjectOfType<UiManager>();
     }
-    public void UpdateMoney(float amount)
+    public bool UpdateMoney(float amount)
     {
        
         if (Playermoney + amount < 0)
         {
-
+            return false;
         }
         else
         {
             Playermoney += amount;
+         
+            return true;
         }
     }
    
