@@ -5,26 +5,20 @@ using UnityEngine;
 public class HurtingObject : MonoBehaviour
 {
     public HealthManager healthManager;
-    public float veneno; 
+    public float veneno = -10f;
     // Start is called before the first frame update
-    void Start()
+
+    public void OnCollisionEnter(Collision collision)
     {
-        healthManager = FindObjectOfType<HealthManager>();
-    }
-
-    public bool UpdateLife(float life)
-    {
-
-        if (veneno + life < 0)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            return false;
-        }
-        else
+            healthManager.UpdateLife(veneno);
+           
+           
+        } else
         {
-            veneno += life;
-
-
-            return true;
+            
         }
     }
 }
+ 

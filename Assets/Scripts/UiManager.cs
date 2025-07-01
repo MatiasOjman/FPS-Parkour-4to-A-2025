@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
 {    public TextMeshProUGUI  TxtMoney;
     public DineroManager dineroManager;
     public HealthManager healthManager;
+    public TextMeshProUGUI TxtLife;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,6 @@ public class UiManager : MonoBehaviour
     void Update()
     {
         TxtMoney.text = dineroManager.Playermoney.ToString();
+        TxtLife.text = healthManager.vida.ToString();
     }
 }

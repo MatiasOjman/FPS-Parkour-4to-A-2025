@@ -2,27 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour  {
+
+    public float vida = 100f;
+
+    public bool UpdateLife(float puntos)
     {
-    public float vida;
-    public HurtingObject hurtingObject;
-    // Start is called before the first frame update
-    void Start()
-    {
-        hurtingObject  = FindObjectOfType<HurtingObject>();
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+
+        if (vida + puntos < 0)
         {
-
-
-
+            return false;
         }
-        if (hurtingObject.UpdateLife(-vida))
+        else
         {
-            Destroy(gameObject);
+            vida = vida + puntos;
+            return true;
         }
     }
-   
+
 }
